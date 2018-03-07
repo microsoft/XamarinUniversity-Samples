@@ -1,3 +1,6 @@
+# Xamarin University samples
+
+Mobile .NET and Azure samples built to support the training materials at [Xamarin University](https://university.xamarin.com/).
 
 # Contributing
 

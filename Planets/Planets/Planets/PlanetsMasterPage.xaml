@@ -1,0 +1,30 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="Planets.PlanetsMasterPage"
+               Title="Planets">
+    
+    <StackLayout VerticalOptions="StartAndExpand">
+        <ListView x:Name="MenuItemsListView"
+              BackgroundColor="LightBlue"
+              HasUnevenRows="true"
+              ItemsSource="{Binding .}">
+            <ListView.Header>
+                <Grid BackgroundColor="LightBlue">
+                    <Label Margin="10" Text="Planets" FontSize="Large" />
+                </Grid>
+            </ListView.Header>
+            <ListView.ItemTemplate>
+                <DataTemplate>
+                    <ViewCell>
+                        <StackLayout Padding="5" Orientation="Horizontal" BackgroundColor="Black">
+                            <Image WidthRequest="64" HeightRequest="64" Source="{Binding Image}" />
+                            <Label VerticalTextAlignment="Center" Text="{Binding Name}" FontSize="Medium" TextColor="Azure" />
+                        </StackLayout>
+                    </ViewCell>
+                </DataTemplate>
+            </ListView.ItemTemplate>
+        </ListView>
+    </StackLayout>
+    
+</ContentPage>

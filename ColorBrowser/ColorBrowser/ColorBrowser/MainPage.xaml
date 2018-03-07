@@ -1,0 +1,60 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:local="clr-namespace:ColorBrowser"
+             x:Class="ColorBrowser.MainPage"
+             Title="Contoso Paint Browser"
+             NavigationPage.BackButtonTitle="All Colors">
+
+    <ListView x:Name="listColors"
+              ItemsSource="{Binding .}"
+              HasUnevenRows="True" >
+
+        <ListView.Header>
+            <ContentView Padding="0,5" BackgroundColor="#eeeeee">
+                <Label FontSize="Medium" Text="Interior Paint Colors" HorizontalTextAlignment="Center" VerticalTextAlignment="Center" />
+            </ContentView>
+        </ListView.Header>
+
+        <ListView.Footer>
+            <ContentView Padding="0,5">
+                <Label FontSize="Small" Text="Paint available in a variety of finishes" HorizontalTextAlignment="Center" VerticalTextAlignment="Center" />
+            </ContentView>
+        </ListView.Footer>
+
+        <ListView.ItemTemplate>
+            <DataTemplate>
+                <ViewCell>
+                    <Grid BackgroundColor="{Binding BackgroundColor}" Margin="2" HeightRequest="80">
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="auto" />
+                            <ColumnDefinition Width="*" />
+                            <ColumnDefinition Width="auto" />
+                        </Grid.ColumnDefinitions>
+                        <BoxView WidthRequest="72" HeightRequest="72" 
+                                    VerticalOptions="Center" HorizontalOptions="Center"
+                                    BackgroundColor="{Binding PrimaryColor}" Margin="4"/>
+                        <StackLayout Grid.Column="1" VerticalOptions="Center">
+                            <Label Text="{Binding Name}" FontSize="Medium" LineBreakMode="WordWrap" />
+                            <Label Text="{Binding PrimaryColor}" TextColor="DarkGray" />
+                        </StackLayout>
+
+                        <Grid Grid.Column="2" Margin="4">
+                            <Grid.RowDefinitions>
+                                <RowDefinition Height="auto" />
+                                <RowDefinition Height="auto" />
+                            </Grid.RowDefinitions>
+
+                            <BoxView Grid.Column="0" WidthRequest="40" HeightRequest="40" BackgroundColor="{Binding TintColors[2]}" />
+                            <BoxView Grid.Column="1" WidthRequest="40" HeightRequest="40" BackgroundColor="{Binding TintColors[1]}" />
+                            <BoxView Grid.Column="2" WidthRequest="40" HeightRequest="40" BackgroundColor="{Binding TintColors[0]}" />
+
+                            <Label Text="Tint: 25% 50% 75%" Grid.Row="1" Grid.ColumnSpan="3" HorizontalOptions="Center" FontSize="Micro" />
+                        </Grid>
+
+                    </Grid>
+                </ViewCell>
+            </DataTemplate>
+        </ListView.ItemTemplate>
+    </ListView>
+</ContentPage>

@@ -1,0 +1,17 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="ColorBrowser.ColorDetails"
+             Title="{Binding Name}">
+    
+    <StackLayout BackgroundColor="{Binding BackgroundColor}" Spacing="5" Padding="10">
+        <Label Text="{Binding Name, StringFormat='Color name: {0}'}" FontSize="Medium" />
+        <Label Text="{Binding PrimaryColor}" TextColor="DarkGray" />
+
+        <Label Text="Tint" />
+        <Label x:Name="lblTintColor" />
+        <BoxView x:Name="boxTint" WidthRequest="150" HeightRequest="150" HorizontalOptions="Start" BackgroundColor="{Binding PrimaryColor, Mode=OneWay}" />
+        <Slider x:Name="sliderTint" Minimum="0" Maximum="100" Value="1" />
+
+    </StackLayout>
+</ContentPage>
